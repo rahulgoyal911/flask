@@ -19,7 +19,7 @@ def returnOne(name):
 
 @app.route('/lang', methods=['POST'])
 def addOne():
-    langusge = {'name' : request.json['name']}
+    language = {'name' : request.json['name']}
     languages.append(language)
     return jsonify({'languages': languages})
 
