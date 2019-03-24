@@ -30,7 +30,25 @@ def ow():
         attended = str(row[1])
         total = str(row[2])
         data += [{'roll':roll,'attended':attended,'total':total}]
-    time.sleep(10)
+    return jsonify(data)
+dt = []
+@app.route('/getattendence/<string:condition>', methods=['GET'])
+def ow2(condition):
+    global cur
+    cur.execute("SELECT * from SECOND")
+    rows = cur.fetchall()
+    data = []
+    for row in rows:
+        if(str(row[0]) == str(condition)):
+            roll = str(row[0])
+            attended = str(row[1])
+            total = str(row[2])
+            data += [{'roll':roll,'attended':attended,'total':total}]
+        else:
+             print(type(row[0]))
+             print(type(condition))
+    #     data += [{'roll':roll,'attended':attended,'total':total}]
+    # langs = [dt for dt in data if data[0] == int(nameq) ]
     return jsonify(data)
 
 
