@@ -18,9 +18,10 @@ def test1():
 	a = request.json['name']
 	language = {'name' : a}
 	# print(language)
-	res = getData(a)
+	res = "getData(a)"
 	# languages.append(language)
-	languages[0] = language
+	language = {'name':res}
+	languages=language
 	response = jsonify({'languages': languages})
 	response.headers.add('Access-Control-Allow-Origin', '*')
 	return response
@@ -35,5 +36,11 @@ def ow2(condition):
 # function that will return string of expressions
 def getData(charStr):
 	print("function called")
+	# store charstr as .png or .jpeg or .jpg
+
+	# call ml function with that image as input
+
+	# return the string
+
 if __name__ == '__main__':
     app.run(debug=True)
